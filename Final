@@ -1,0 +1,355 @@
+import java.awt.event.ItemEvent;
+
+import java.awt.event.ItemListener;
+
+
+
+import javax.swing.JCheckBox;
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JPanel;
+
+
+
+
+
+public class GloveCustomizer extends JFrame {
+
+	/*
+
+	 * This program creates a list of services provided at Joe's Automotive. Any services selected will be added towards the total cost
+
+	 */
+
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String [] produceNames = {
+      		 "Long Laces", "Colored Logo","Color Customizable Thumb",
+               "Snake Skin Thumb", "Cuolored Back", "Snake Skin Back", "Colored Web",
+               "Writing on Thumb", "Snake Skin Web"};
+
+      private double [] producePrices = {
+          30.00, 25.00, 35.00,
+          45.00, 20.00, 30.00, 20.00,
+          50.00, 25.00};
+
+	//Total sum of the services selected
+
+	int sum = 500;
+
+	int budget = 500;
+
+	//Initialize all the checkboxes needed
+
+	JPanel panel;
+
+	private JLabel label;
+
+	private JLabel total;
+
+	private JCheckBox longLaces;
+
+	private JCheckBox coloredLogo;
+
+	private JCheckBox colorCustomizableThumb;
+
+	private JCheckBox snakeSkinThumb;
+
+	private JCheckBox coloredBack;
+
+	private JCheckBox snakeSkinBack;
+
+	private JCheckBox coloredWeb;
+
+	private JCheckBox writingOnThumb;
+
+	
+	
+
+	//Constructor that sets the title,size,etc
+
+	public GloveCustomizer() {
+
+		super("The Glove Customizer");
+
+		
+
+		setSize(600, 200);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		buildPanel();
+
+		add(panel);
+
+		setVisible(true);
+
+	}
+
+	
+
+	//Adds the check boxes and label and assigns each check box to a check box listener
+
+	private void buildPanel() {
+
+		label = new JLabel("Welcome to Glove Customizer please the select the services that your require today");
+
+		total = new JLabel("Your Total is: ");
+
+		longLaces = new JCheckBox("Long Laces: $45");
+
+		longLaces.addItemListener(new CheckBoxListener());
+
+		coloredLogo = new JCheckBox("Color Customizable Logo: $20");
+
+		coloredLogo.addItemListener(new CheckBoxListener());
+
+		colorCustomizableThumb = new JCheckBox("Color Customizable Thumb: $30");
+
+		colorCustomizableThumb.addItemListener(new CheckBoxListener());
+
+		snakeSkinThumb = new JCheckBox("Snake Skin Thumb: $50");
+
+		snakeSkinThumb.addItemListener(new CheckBoxListener());
+
+		coloredBack = new JCheckBox("Color Customizable Back: $25");
+
+		coloredBack.addItemListener(new CheckBoxListener());
+
+		snakeSkinBack = new JCheckBox("Snake Skin Back of Glove: $100");
+
+		snakeSkinBack.addItemListener(new CheckBoxListener());
+
+		coloredWeb = new JCheckBox("Color Customizable Web: $25");
+
+		coloredWeb.addItemListener(new CheckBoxListener());
+
+		writingOnThumb = new JCheckBox("Number of Letters on Thumb: $5");
+
+		writingOnThumb.addItemListener(new CheckBoxListener());
+
+		
+
+		
+
+		
+
+		panel = new JPanel();
+
+		
+
+		panel.add(label);
+
+		panel.add(longLaces);
+
+		panel.add(coloredLogo);
+
+		panel.add(colorCustomizableThumb);
+
+		panel.add(snakeSkinThumb);
+
+		panel.add(coloredBack);
+
+		panel.add(snakeSkinBack);
+
+		panel.add(coloredWeb);
+
+		panel.add(writingOnThumb);
+
+
+		panel.add(total);
+
+		
+
+	}
+
+	
+
+	//If a check box is selected then add that cost to the users total else deduct it from the users total
+
+	private class CheckBoxListener implements ItemListener{
+
+		
+
+
+
+		@Override
+
+		public void itemStateChanged(ItemEvent e) {
+
+		
+
+			
+
+			
+
+			if(e.getSource() == longLaces) {
+
+				if(longLaces.isSelected()) {
+
+					sum-=45;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}else {
+
+					sum+=45;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == coloredLogo) {
+
+				if(coloredLogo.isSelected()) {
+
+					sum-=20;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}else {
+
+					sum+=20;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == colorCustomizableThumb) {
+
+				if(colorCustomizableThumb.isSelected()) {
+
+					sum-=30;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}else {
+
+					sum+=30;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == snakeSkinThumb) {
+
+				if(snakeSkinThumb.isSelected()) {
+
+					sum-= 50;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}else {
+
+					sum+=50;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == coloredBack) {
+
+				if(coloredBack.isSelected()) {
+
+					sum-= 25;
+
+					total.setText("Your Budget is: $" + sum);
+
+					
+
+				}else {
+
+					sum+=25;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == snakeSkinBack) {
+
+				if(snakeSkinBack.isSelected()) {
+
+					sum-= 100;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}else {
+
+					sum+=100;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}else if(e.getSource() == coloredWeb) {
+
+				if(coloredWeb.isSelected()) {
+
+					sum-=25;
+
+					total.setText("Your Budget is: $" + sum);
+
+					
+
+				}else {
+
+					sum+=25;
+
+					total.setText("Your Budget is: $" + sum);
+
+				}
+
+			}
+
+			
+
+		}
+
+		
+
+	}
+
+	
+
+	//Start the program
+
+	public static void main(String[] args) {
+
+		new GloveCustomizer();
+
+	}
+	
+
+
+
+	public String [] getProduceNames() {
+		return produceNames;
+	}
+
+
+
+	public void setProduceNames(String [] produceNames) {
+		this.produceNames = produceNames;
+	}
+
+
+
+	public double [] getProducePrices() {
+		return producePrices;
+	}
+
+
+
+	public void setProducePrices(double [] producePrices) {
+		this.producePrices = producePrices;
+	}
+
+
+}
