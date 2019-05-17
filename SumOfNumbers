@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+
+
+public class SumOfNumbers {
+
+	/*
+
+	 * This program takes a number and starts from 1 and adds all the numbers till it reaches the given number
+
+	 */
+
+	
+
+	public static void main(String[] args) {
+
+		
+
+		Scanner input = new Scanner(System.in);
+
+		
+
+		System.out.println("Enter in any number, and all the numbers starting from 1 will be added until we reach the entered number");
+
+		int num = input.nextInt();
+
+
+
+		System.out.println(sumOfNumbers(num));
+
+
+
+	}
+
+
+
+	
+
+	public static int sumOfNumbers(int num){
+
+
+
+	//Start from the given number and work backwards all the way to 1 and add all the numbers till we reach 1
+
+	if(num >= 1){
+
+
+
+		return(num + sumOfNumbers(num-1));
+
+
+
+	}
+
+
+
+	return 0;
+
+
+
+	
+
+
+
+	}
+}
