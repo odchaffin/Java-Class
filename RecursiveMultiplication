@@ -1,0 +1,72 @@
+
+import java.util.Scanner;
+
+
+
+public class RecursiveMultiplication {
+
+	/*
+
+	 * This program has a method that takes 2 parameters then multiplies those numbers together using recursion
+
+	 */
+
+	
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+
+		
+
+		System.out.println("Enter in the first factor");
+
+		int factor1 = input.nextInt();
+
+		
+
+		System.out.println("Enter in the second factor");
+
+		int factor2 = input.nextInt();
+
+		
+
+		
+
+
+
+		System.out.println( factor1 + " X " + factor2 + " = " + multiply(factor1,factor2));
+
+
+
+	}
+
+
+
+
+
+	public static int multiply(int x, int y){
+
+		
+
+		//For what value x is keep adding y by itself till x reaches 0
+
+		if(x > 0){
+
+
+
+			return(y + multiply(x-1,y));
+
+
+
+		}else{
+
+
+
+			return 0;
+
+
+
+		}
+	}
+}
