@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+
+
+public class CharacterCounter {
+
+	/*
+
+	 * This program takes a string a counts how may times a specific letter appears
+
+	 */
+
+	
+
+	public static void main(String[] args) {
+
+		
+
+		Scanner input = new Scanner(System.in);
+
+		
+
+		System.out.println("Enter in any word");
+
+		String word = input.nextLine();
+
+		
+
+		System.out.println("Enter in a letter that you want the characterCount method to search for");
+
+		String letter = input.nextLine();
+
+
+
+
+
+		if(characterCount(word, letter) >=2 || characterCount( word, letter) == 0) {
+
+			System.out.println("The letter " + letter + " was found " + characterCount(word,letter) + " times");
+
+		}else {
+
+			System.out.println("The letter " + letter + " was found " + characterCount(word,letter) + " time");
+
+		}
+
+		
+
+
+
+
+
+	}
+
+
+
+	
+
+	public static int characterCount(String word, String letter){
+
+		
+
+		boolean end = false;
+
+		//Take the last letter of the string
+
+	String lastLetter = word.substring(word.length() - 1, word.length());
+
+
+
+	//Cut the string down by 1
+
+	String cut = word.substring(0,word.length()- 1);
+
+
+
+	if(cut.length() ==0) {
+
+		 end = true;
+
+	}
+
+
+
+		/*
+
+		 * If the letter matches the given letter that the user entered increase the count by 1 and pass the cut string into
+
+		 * another instance of the method 
+
+		 */
+
+		
+
+
+
+			if(lastLetter.equals(letter) && end){
+
+
+
+				return 1;
+
+				
+
+				
+
+			}else if(lastLetter.equals(letter)) {
+
+				return (1 + characterCount(cut,letter));
+
+			}else if(end){
+
+				return 0;
+
+			}else{
+
+				return (0+ characterCount(cut,letter));
+
+
+
+
+			}
+	}
+}
+
+
+
+
+
