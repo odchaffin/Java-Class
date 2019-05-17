@@ -1,0 +1,62 @@
+
+public class Tester {
+	
+	public static void main(String[] args) {
+		System.out.println("Testing the TestScores class exceptions");
+		
+		System.out.println("Entering in the following array: 92,88,97,100,105");
+		double[] testScores = {92,88,97,100,105};
+		System.out.println("The Illegal Argument Exception shall be thrown because there is a number greater than 100");
+		
+		TestScores ts = new TestScores(testScores);
+		
+		System.out.println("------------------------------------------------------------------------------------------");
+		
+		System.out.println("Testing the TestScoresWithCustomException class exceptions");
+		System.out.println("Entering in the following array: -85,87,90,91,84");
+		double[] testScores2 = {-85,87,90,91,84};
+		System.out.println("The Invalid Test Score exception shall be thrown because there is a negative number");
+		
+		TestScoresCustom ts2 = new TestScoresCustom(testScores2);
+		
+		System.out.println("-----------------------------------------------------------------------------------------");
+		
+		System.out.println("Testing the RetailItem class exceptions");
+		System.out.println("Entering the following price number: -20");
+		System.out.println("The InvalidPriceNumber exception shall be thrown because the price is negative");
+		RetailItem ri = new RetailItem("Jacket",12,-20);
+		
+		System.out.println("Now entering a negative number for the units: -12");
+		System.out.println("The InvalidUnitsNumber exception shall be thrown");
+		RetailItem r2 = new RetailItem("Pants",-12,20);
+		
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("Testing the Month class exceptions");
+		System.out.println("Entering an invalid month number: 13");
+		System.out.println("The InvalidMonthNumber exception will be thrown below");
+		Month m = new Month(13);
+		
+		System.out.println("Now entering an invalid month name: Kevin");
+		System.out.println("The InvalidMonthName exception will be thrown below");
+		Month m2 = new Month("Kevin");
+		
+		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("Testing the Payroll class exceptions");
+		System.out.println("Entering an empty name, the EmptyEmployeeName exception will be thrown");
+		Payroll p = new Payroll(" ",213,17,40);
+		
+		System.out.println("Entering an invalid ID: -213");
+		System.out.println("The InvalidID exception will be be thrown");
+		Payroll p2 = new Payroll("Steve",-213,17,40);
+		
+		System.out.println("Entering an ivalid number for the hours worked: 90");
+		System.out.println("The InvalidHoursWorked exception will be thrown");
+		Payroll p3 = new Payroll("Steve",213,17,90);
+		
+		System.out.println("Entering an invalid pay rate: 35");
+		System.out.println("The InvalidPayRate exception shall be thrown");
+		Payroll p4 = new Payroll("Steve",213,35,40);
+		
+	}
+
+}
