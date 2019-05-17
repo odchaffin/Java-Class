@@ -1,0 +1,114 @@
+
+import java.util.Scanner;
+
+
+
+public class MemberMethod {
+
+	/*
+
+	 * This program takes in an array and counts how many times a specific element appears
+
+	 */
+
+	
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+
+		
+
+		System.out.println("How many numbers do you want to be in this list");
+
+		int length = input.nextInt();
+
+		
+
+		int[] array = new int[length];
+
+		
+
+		System.out.println("Enter in " + length + " Numbers. (Press enter after typing a number)");
+
+		for(int i = 0; i < array.length; i++) {
+
+			int num = input.nextInt();
+
+			array[i] = num;
+
+		}
+
+
+
+		System.out.println("Type the number that you want the isMember method to search for");
+
+		int searchNum = input.nextInt();
+
+		
+
+		System.out.println(isMember(array,searchNum));
+
+		
+
+
+
+	}
+
+
+
+	
+
+	public static boolean isMember(int[] array, int x){
+
+		
+
+		//Cut the array down by 1 each time
+
+		int[] cutArray = new int[array.length - 1];
+
+
+
+		
+
+
+
+
+
+		//Put the elements that was passed into the method into the cut array
+
+		for(int i =0; i < cutArray.length; i++){
+
+
+
+			cutArray[i] = array[i];
+
+
+
+		}
+
+
+
+		//If we had found the element return true else do this method again with the cutarray
+
+		if(array[array.length - 1] == x){
+
+			return true;
+
+			
+
+			//If the array size is 0 that means we weren't able to find what we were looking for so return false
+
+		}else if(cutArray.length == 0) {
+
+			return false;
+
+		}else {
+
+			return isMember(cutArray,x);
+
+		}
+	}
+}
+
+
