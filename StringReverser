@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+
+
+public class StringReverser {
+
+	/*
+
+	 * This program takes a string and reverses it
+
+	 */
+
+	
+
+	public static void main(String[] args) {
+
+		
+
+		Scanner input = new Scanner(System.in);
+
+		
+
+		System.out.println("Enter in a word that you want to be reversed");
+
+		String word = input.nextLine();
+
+
+
+
+
+		reverseString(word);
+
+
+
+	}
+
+
+
+
+
+	public static String reverseString(String str){
+
+
+
+		//Take the last letter of the string
+
+		String letter = str.substring(str.length() - 1, str.length());
+
+
+
+		//Cut the string down by 1 to be passed into the method again
+
+		String cutString = str.substring(0,str.length() - 1);
+
+
+
+		//Print out that letter
+
+		System.out.print(letter);
+
+
+
+
+
+		//Wile there is still letters in the string keeping passing the string into the same method
+
+		if(cutString.length() != 0){
+
+
+
+			return reverseString(cutString);
+
+
+
+		}else {
+
+
+
+			return null;
+
+
+
+		}
+	}
+}
+
+
+
+
