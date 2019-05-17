@@ -1,0 +1,120 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class DormMealPlan extends JFrame{
+	
+	/*
+	 * This program lets the user pick a dorm and meal plan then displays the cost
+	 */
+	
+	//Create all the necessary components
+	private JLabel label = new JLabel("Please select a dorm and meal plan below for the semester");
+	private JPanel panel = new JPanel();
+	private JComboBox dormNames;
+	private JComboBox mealPlans;
+	private JTextField selectedDorm = new JTextField(15);
+	private JTextField selectedMeal = new JTextField(15);
+	private String[] dorms = {"Allen Hall: $1500","Pike Hall: $1600","Farthing Hall: $1200","University Suites: $1800"};
+	private String[] meals = {"7 Meals a week: $560", "14 Meals a week: $1095", "Unlimited Meals: $1500"};
+	
+	int dormCost = 0;
+	int mealCost = 0;
+	
+	private JLabel total = new JLabel("Your total cost is: ");
+	
+	//Constructor that adds everything to the window
+	public DormMealPlan() {
+		super("Dorm and Meal Plan Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		dormNames = new JComboBox(dorms);
+		mealPlans = new JComboBox(meals);
+		
+		selectedDorm.setEditable(false);
+		selectedMeal.setEditable(false);
+		
+		//When an item from the combobox is selected use the comboboxlistener to display that item
+		dormNames.addActionListener(new ComboBoxListener());
+		mealPlans.addActionListener(new ComboBoxListener2());
+		
+		add(panel);
+		panel.add(label);
+		panel.add(selectedDorm);
+		
+		panel.add(dormNames);
+		panel.add(selectedMeal);
+		
+		panel.add(mealPlans);
+		panel.add(total);
+		setSize(400,200);
+		setVisible(true);
+		
+	}
+	
+	//Listener class to determine the cost depending on the item selected. This is for the dorms
+	private class ComboBoxListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String selection =  (String) dormNames.getSelectedItem();
+			selectedDorm.setText(selection);
+			int selected = dormNames.getSelectedIndex();
+			
+			if(e.getSource() == dormNames && selected == 0) {
+					dormCost = 1500;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}else if(e.getSource() == dormNames && selected == 1) {
+					dormCost=1600;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}else if(e.getSource() == dormNames && selected == 2) {
+					dormCost=1200;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}else if(e.getSource() == dormNames && selected == 3) {
+					dormCost=1800;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	//Listener class to determine the cost depending on the item selected. This is for the meals
+	private class ComboBoxListener2 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String selection = (String) mealPlans.getSelectedItem();
+			selectedMeal.setText(selection);
+			
+			int selected = mealPlans.getSelectedIndex();
+			
+			if(e.getSource() == mealPlans && selected == 0) {
+					mealCost = 560;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}else if(e.getSource() == mealPlans && selected == 1) {
+					mealCost=1095;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}else if(e.getSource() == mealPlans && selected == 2) {
+					mealCost=1500;
+					total.setText("Your total cost is: $" + (mealCost + dormCost));
+			}
+			
+			
+		}
+		
+	}
+	
+	//Start the program
+	public static void main(String[] args) {
+		new DormMealPlan();
+	}
+
+}
