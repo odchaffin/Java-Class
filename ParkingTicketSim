@@ -1,0 +1,30 @@
+
+public class ParkingTicketSim {
+	public static void main(String[] args) {
+
+	    // A green car was parked for 125 minutes
+	    ParkingTicketSim parkingTicketSim = new ParkingTicketSim();
+	    ParkedCar car = new ParkedCar("Toyota", "2005", "Green", "ABC123", 125);
+
+	    // 60 minutes of time was purchased
+	    ParkingMeter meter = ParkingMeter(60);
+
+	    // Officer Jack was on duty
+	    PoliceOfficer officer = new PoliceOfficer("Sargent Jack Johnson", "8909");
+
+	    ParkingTicket ticket = officer.patrol(car, meter);
+
+	    // Did the officer issue a ticket?
+	    if (ticket != null) {
+	        System.out.println(ticket);
+	    } else {
+	        System.out.println("No crimes committed!");
+	    }
+	}
+
+	private static ParkingMeter ParkingMeter(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
