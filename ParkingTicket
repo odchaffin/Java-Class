@@ -1,0 +1,41 @@
+/**
+ * This class should simulate a parking ticket.
+ *
+ */
+class ParkingTicket {
+
+    private ParkedCar car;
+    private PoliceOfficer officer;
+    private double fine;
+    private int minutes;
+
+    public final double BASE_FINE = 25.0;
+    public final double HOURLY_FINE = 10.0;
+
+    public ParkingTicket(ParkedCar car, PoliceOfficer officer, int minutes) {
+        super();
+        this.car = car;
+        this.officer = officer;
+        this.minutes = minutes;
+
+        calculateFine();
+    }
+
+    private void calculateFine() {
+
+        double hours = minutes / 60.0;
+        int hoursAsInt = (int) hours;
+
+        if ((hours - hoursAsInt) > 0) {
+            hoursAsInt++;
+        }
+
+        // Assign the base fine.
+        fine = BASE_FINE;
+
+        // Add the additional hourly fines.
+        fine += (hoursAsInt * HOURLY_FINE);
+    }
+
+    //omitted getter/setters
+}
