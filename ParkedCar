@@ -1,0 +1,22 @@
+class ParkedCar {
+
+    private String make;
+    private String model;
+    private String color;
+    private String licenseNumber;
+    private int minutesParked;
+    ParkedCar(String make, String model, String color, String licenseNumber, int minutesParked){
+    	this.make = make;
+    	this.model = model;
+    	this.color = color;
+    	this.licenseNumber = licenseNumber;
+    	this.minutesParked = minutesParked;
+    }
+	public int getMinutesParked() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+    //omitted getter/setters
+
+}
