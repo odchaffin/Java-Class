@@ -1,0 +1,23 @@
+/**
+ * This class should simulate a parking ticket, see exercise for description
+ * of responsibilities
+ *
+ */
+class ParkingMeter {
+
+    private int minutesPurchased;
+
+	public int getMinutesPurchased() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+    //omitted getter/setters
+
+	private int minutesParked;
+	
+	public int getMinutesParked() {
+		
+	return 0; 
+}
+}
