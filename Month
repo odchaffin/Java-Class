@@ -1,0 +1,216 @@
+public class Month
+{
+    private int monthNumber;
+    public String monthName;
+ 
+    public Month()
+    {
+        monthNumber = 1;
+    }
+ 
+    public Month(int m)
+    {
+ 
+        if (m < 1 || m > 12)
+        {
+            monthNumber = 1;
+        }
+ 
+        else
+        {
+            monthNumber = m;
+        }
+    }
+ 
+    public Month(String n)
+    {
+        if (n == "January")
+        {
+            monthNumber = 1;
+        }
+ 
+        if (n == "Febuary")
+        {
+            monthNumber = 2;
+        }
+ 
+        if (n == "March")
+        {
+            monthNumber = 3;
+        }
+ 
+        if (n == "April")
+        {
+            monthNumber = 4;
+        }
+ 
+        if (n == "May")
+        {
+            monthNumber = 5;
+        }
+ 
+        if (n == "June")
+        {
+            monthNumber = 6;
+        }
+ 
+        if (n == "July")
+        {
+            monthNumber = 7;
+        }
+ 
+        if (n == "August")
+        {
+            monthNumber = 8;
+        }
+ 
+        if (n == "September")
+        {
+            monthNumber = 9;
+        }
+ 
+        if (n == "October")
+        {
+            monthNumber = 10;
+        }
+ 
+        if (n == "November")
+        {
+            monthNumber = 11;
+        }
+ 
+        if (n == "December")
+        {
+            monthNumber = 12;
+        }
+    }
+ 
+    public void setMonthNumber(int i)
+    {
+        if (i < 1 || i > 12)
+        {
+            monthNumber = 1;
+        }
+ 
+        else
+        {
+            monthNumber = i;
+        }
+    }
+ 
+ 
+    public int getMonthNumber()
+    {
+        return monthNumber;
+    }
+ 
+    public String getMonthName()
+    {
+        if (monthNumber == 1)
+        {
+            return "January";
+        }
+ 
+        if (monthNumber == 2)
+        {
+            return "Febuary";
+        }
+ 
+        if (monthNumber == 3)
+        {
+            return "March";
+        }
+ 
+        if (monthNumber == 4)
+        {
+            return "April";
+        }
+ 
+        if (monthNumber == 5)
+        {
+            return "May";
+        }
+ 
+        if (monthNumber == 6)
+        {
+            return "June";
+        }
+ 
+        if (monthNumber == 7)
+        {
+            return "July";
+        }
+ 
+        if (monthNumber == 8)
+        {
+            return "August";
+        }
+ 
+        if (monthNumber == 9)
+        {
+            return "September";
+        }
+ 
+        if (monthNumber == 10)
+        {
+            return "October";
+        }
+ 
+        if (monthNumber == 11)
+        {
+            return "November";
+        }
+ 
+        if (monthNumber == 12)
+        {
+            return "December";
+        }
+		return monthName;
+    }
+ 
+    public String toString()
+    {
+        return getMonthName();
+    }
+ 
+    public boolean equals(Month m)
+    {
+        if (this.monthNumber == m.monthNumber)
+        {
+            return true;
+        }
+ 
+        else
+        {
+            return false;
+        }
+    }
+ 
+    public boolean greaterThan(Month m2)
+    {
+        if(this.monthNumber > m2.monthNumber)
+        {
+            return true;
+        }
+ 
+        else
+        {
+            return false;
+        }
+    }
+ 
+    public boolean lessThan(Month m2)
+    {
+ 
+        if(this.monthNumber < m2.monthNumber)
+        {
+            return true;
+        }
+ 
+        else
+        {
+            return false;
+        }
+ 
+    }
+}
